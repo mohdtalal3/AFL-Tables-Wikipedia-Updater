@@ -1,0 +1,172 @@
+2025-02-20 21:45:39,225 - INFO - Running first scrape for year 2024 with 1 threads
+2025-02-20 21:45:39,226 - INFO - Running scraper for year 2024 with 1 threads
+2025-02-20 21:45:43,890 - INFO - Processing Rory_Laird...
+2025-02-20 21:45:45,358 - ERROR - Error parsing HTML from https://afltables.com/afl/stats/players/R/Rory_Laird.html: name 'get_player_dob' is not defined
+2025-02-20 21:45:45,359 - ERROR - Failed to extract data for Rory_Laird
+2025-02-20 21:45:45,359 - INFO - Processing Jordan_Dawson...
+2025-02-20 21:45:46,932 - ERROR - Error parsing HTML from https://afltables.com/afl/stats/players/J/Jordan_Dawson.html: name 'get_player_dob' is not defined
+2025-02-20 21:45:46,933 - ERROR - Failed to extract data for Jordan_Dawson
+2025-02-20 21:45:46,934 - INFO - Processing Jake_Soligo...
+2025-02-20 21:45:48,263 - ERROR - Error parsing HTML from https://afltables.com/afl/stats/players/J/Jake_Soligo.html: name 'get_player_dob' is not defined
+2025-02-20 21:45:48,265 - ERROR - Failed to extract data for Jake_Soligo
+2025-02-20 21:45:48,266 - INFO - Processing Mitch_Hinge...
+2025-02-20 21:45:49,495 - ERROR - Error parsing HTML from https://afltables.com/afl/stats/players/M/Mitch_Hinge.html: name 'get_player_dob' is not defined
+2025-02-20 21:45:49,496 - ERROR - Failed to extract data for Mitch_Hinge
+2025-02-20 21:45:49,497 - INFO - Processing Matt_Crouch...
+2025-02-20 21:47:34,826 - INFO - Running first scrape for year 2024 with 1 threads
+2025-02-20 21:47:34,827 - INFO - Running scraper for year 2024 with 1 threads
+2025-02-20 21:47:38,575 - INFO - Processing Rory_Laird...
+2025-02-20 21:47:40,171 - INFO - Updating Wikipedia page for Rory_Laird 29-Dec-1993
+2025-02-20 21:47:41,210 - INFO - Content matches the advanced search criteria
+2025-02-20 21:47:56,586 - INFO - Successfully updated page for Rory_Laird
+2025-02-20 21:47:56,588 - INFO - Successfully processed Rory_Laird
+2025-02-20 21:47:59,589 - INFO - Processing Jordan_Dawson...
+2025-02-20 21:48:01,215 - INFO - Updating Wikipedia page for Jordan_Dawson 9-Apr-1997
+2025-02-20 21:48:01,990 - INFO - Content matches the advanced search criteria
+2025-02-20 21:48:16,633 - INFO - Successfully updated page for Jordan_Dawson
+2025-02-20 21:48:16,637 - INFO - Successfully processed Jordan_Dawson
+2025-02-20 21:48:19,639 - INFO - Processing Jake_Soligo...
+2025-02-20 21:48:20,830 - INFO - Updating Wikipedia page for Jake_Soligo 25-Jan-2003
+2025-02-20 21:48:21,239 - INFO - Content matches the advanced search criteria
+2025-02-20 21:49:11,495 - INFO - Running first scrape for year 2024 with 1 threads
+2025-02-20 21:49:11,496 - INFO - Running scraper for year 2024 with 1 threads
+2025-02-20 21:49:15,476 - INFO - Processing Jake_Soligo...
+2025-02-20 21:49:16,567 - INFO - Updating Wikipedia page for Jake_Soligo 25-Jan-2003
+2025-02-20 21:49:17,767 - INFO - Content matches the advanced search criteria
+2025-02-20 21:49:34,958 - INFO - Running first scrape for year 2024 with 1 threads
+2025-02-20 21:49:34,959 - INFO - Running scraper for year 2024 with 1 threads
+2025-02-20 21:49:39,974 - INFO - Processing Rory_Laird...
+2025-02-20 21:49:41,548 - INFO - Updating Wikipedia page for Rory_Laird 29-Dec-1993
+2025-02-20 21:49:42,165 - INFO - Content matches the advanced search criteria
+2025-02-20 21:50:16,953 - INFO - Successfully updated page for Rory_Laird
+2025-02-20 21:50:16,957 - INFO - Successfully processed Rory_Laird
+2025-02-20 21:50:19,958 - INFO - Processing Jordan_Dawson...
+2025-02-20 21:50:21,463 - INFO - Updating Wikipedia page for Jordan_Dawson 9-Apr-1997
+2025-02-20 21:50:22,789 - INFO - Content matches the advanced search criteria
+2025-02-20 21:50:56,585 - INFO - Successfully updated page for Jordan_Dawson
+2025-02-20 21:50:56,588 - INFO - Successfully processed Jordan_Dawson
+2025-02-20 21:50:59,589 - INFO - Processing Jake_Soligo...
+2025-02-20 21:51:00,674 - INFO - Updating Wikipedia page for Jake_Soligo 25-Jan-2003
+2025-02-20 21:51:01,990 - INFO - Content matches the advanced search criteria
+2025-02-20 21:51:36,682 - INFO - Successfully updated page for Jake_Soligo
+2025-02-20 21:51:36,684 - INFO - Successfully processed Jake_Soligo
+2025-02-20 21:51:39,686 - INFO - Processing Mitch_Hinge...
+2025-02-20 21:51:40,784 - INFO - Updating Wikipedia page for Mitch_Hinge 26-Jun-1998
+2025-02-20 21:51:41,840 - INFO - Content matches the advanced search criteria
+2025-02-20 21:52:16,559 - INFO - Successfully updated page for Mitch_Hinge
+2025-02-20 21:52:16,562 - INFO - Successfully processed Mitch_Hinge
+2025-02-20 21:52:19,563 - INFO - Processing Matt_Crouch...
+2025-02-20 21:52:21,289 - INFO - Updating Wikipedia page for Matt_Crouch 21-Apr-1995
+2025-02-20 21:52:21,781 - WARNING - Content does not match the criteria
+2025-02-20 21:52:21,781 - WARNING - Failed to update Wikipedia page for Matt_Crouch
+2025-02-20 21:52:24,783 - INFO - Processing Lachlan_Sholl...
+2025-02-20 21:52:26,007 - INFO - Updating Wikipedia page for Lachlan_Sholl 7-Mar-2000
+2025-02-20 21:52:26,772 - INFO - Content matches the advanced search criteria
+2025-02-20 21:52:56,494 - INFO - Successfully updated page for Lachlan_Sholl
+2025-02-20 21:52:56,497 - INFO - Successfully processed Lachlan_Sholl
+2025-02-20 21:52:59,499 - INFO - Processing Ben_Keays...
+2025-02-20 21:53:01,139 - INFO - Updating Wikipedia page for Ben_Keays 23-Feb-1997
+2025-02-20 21:53:02,090 - INFO - Content matches the advanced search criteria
+2025-02-20 21:53:36,953 - INFO - Successfully updated page for Ben_Keays
+2025-02-20 21:53:36,956 - INFO - Successfully processed Ben_Keays
+2025-02-20 21:53:39,957 - INFO - Processing Mark_Keane...
+2025-02-20 21:53:41,045 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  main_df.replace({"": 0}, inplace=True)
+
+2025-02-20 21:53:41,050 - INFO - Updating Wikipedia page for Mark_Keane 17-Mar-2000
+2025-02-20 21:53:41,463 - WARNING - Content does not match the criteria
+2025-02-20 21:53:41,464 - WARNING - Failed to update Wikipedia page for Mark_Keane
+2025-02-20 21:53:44,465 - INFO - Processing Max_Michalanney...
+2025-02-20 21:53:45,575 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  main_df.replace({"": 0}, inplace=True)
+
+2025-02-20 21:53:45,583 - INFO - Updating Wikipedia page for Max_Michalanney 26-Feb-2004
+2025-02-20 21:53:46,221 - INFO - Content matches the advanced search criteria
+2025-02-20 21:54:17,596 - INFO - Successfully updated page for Max_Michalanney
+2025-02-20 21:54:17,599 - INFO - Successfully processed Max_Michalanney
+2025-02-20 22:53:08,702 - INFO - Running first scrape for year 2024 with 1 threads
+2025-02-20 22:53:08,704 - INFO - Running scraper for year 2024 with 1 threads
+2025-02-20 22:53:12,745 - INFO - Processing Rory_Laird...
+2025-02-20 22:53:15,707 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:53:15,715 - INFO - Updating Wikipedia page for Rory_Laird 29-Dec-1993
+2025-02-20 22:53:16,503 - INFO - Content matches the advanced search criteria
+2025-02-20 22:53:21,010 - INFO - Successfully updated page for Rory_Laird
+2025-02-20 22:53:21,013 - INFO - Successfully processed Rory_Laird
+2025-02-20 22:53:24,014 - INFO - Processing Jordan_Dawson...
+2025-02-20 22:53:25,592 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:53:25,597 - INFO - Updating Wikipedia page for Jordan_Dawson 9-Apr-1997
+2025-02-20 22:53:26,128 - INFO - Content matches the advanced search criteria
+2025-02-20 22:53:30,526 - INFO - Successfully updated page for Jordan_Dawson
+2025-02-20 22:53:30,529 - INFO - Successfully processed Jordan_Dawson
+2025-02-20 22:53:33,531 - INFO - Processing Jake_Soligo...
+2025-02-20 22:53:35,636 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:53:35,641 - INFO - Updating Wikipedia page for Jake_Soligo 25-Jan-2003
+2025-02-20 22:53:36,048 - INFO - Content matches the advanced search criteria
+2025-02-20 22:53:40,483 - INFO - Successfully updated page for Jake_Soligo
+2025-02-20 22:53:40,486 - INFO - Successfully processed Jake_Soligo
+2025-02-20 22:53:43,487 - INFO - Processing Mitch_Hinge...
+2025-02-20 22:53:45,141 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:53:45,146 - INFO - Updating Wikipedia page for Mitch_Hinge 26-Jun-1998
+2025-02-20 22:53:45,579 - INFO - Content matches the advanced search criteria
+2025-02-20 22:53:50,404 - INFO - Successfully updated page for Mitch_Hinge
+2025-02-20 22:53:50,405 - INFO - Successfully processed Mitch_Hinge
+2025-02-20 22:53:53,406 - INFO - Processing Matt_Crouch...
+2025-02-20 22:53:54,802 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:53:54,810 - INFO - Updating Wikipedia page for Matt_Crouch 21-Apr-1995
+2025-02-20 22:53:55,925 - WARNING - Content does not match the criteria
+2025-02-20 22:53:55,926 - WARNING - Failed to update Wikipedia page for Matt_Crouch
+2025-02-20 22:53:58,927 - INFO - Processing Lachlan_Sholl...
+2025-02-20 22:54:00,219 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:54:00,225 - INFO - Updating Wikipedia page for Lachlan_Sholl 7-Mar-2000
+2025-02-20 22:54:00,630 - INFO - Content matches the advanced search criteria
+2025-02-20 22:54:03,513 - INFO - Successfully updated page for Lachlan_Sholl
+2025-02-20 22:54:03,514 - INFO - Successfully processed Lachlan_Sholl
+2025-02-20 22:54:06,516 - INFO - Processing Ben_Keays...
+2025-02-20 22:54:09,328 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:54:09,335 - INFO - Updating Wikipedia page for Ben_Keays 23-Feb-1997
+2025-02-20 22:54:10,028 - INFO - Content matches the advanced search criteria
+2025-02-20 22:54:13,737 - INFO - Successfully updated page for Ben_Keays
+2025-02-20 22:54:13,739 - INFO - Successfully processed Ben_Keays
+2025-02-20 22:54:16,740 - INFO - Processing Mark_Keane...
+2025-02-20 22:54:17,836 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:54:17,842 - INFO - Updating Wikipedia page for Mark_Keane 17-Mar-2000
+2025-02-20 22:54:18,244 - WARNING - Content does not match the criteria
+2025-02-20 22:54:18,245 - WARNING - Failed to update Wikipedia page for Mark_Keane
+2025-02-20 22:54:21,246 - INFO - Processing Max_Michalanney...
+2025-02-20 22:54:22,493 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:54:22,500 - INFO - Updating Wikipedia page for Max_Michalanney 26-Feb-2004
+2025-02-20 22:54:22,941 - INFO - Content matches the advanced search criteria
+2025-02-20 22:54:25,139 - INFO - Successfully updated page for Max_Michalanney
+2025-02-20 22:54:25,142 - INFO - Successfully processed Max_Michalanney
+2025-02-20 22:54:28,143 - INFO - Processing Luke_Nankervis...
+2025-02-20 22:54:29,075 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:54:29,081 - INFO - Updating Wikipedia page for Luke_Nankervis 25-May-2003
+2025-02-20 22:54:29,605 - INFO - Content matches the advanced search criteria
+2025-02-20 22:54:35,243 - INFO - Successfully updated page for Luke_Nankervis
+2025-02-20 22:54:35,245 - INFO - Successfully processed Luke_Nankervis
+2025-02-20 22:54:38,246 - INFO - Processing Josh_Rachele...
+2025-02-20 22:54:39,229 - WARNING - c:\Users\Talal_HP\OneDrive\Desktop\wikibot\wikipedia_updater.py:123: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  main_df = main_df.applymap(lambda v: 0 if v == "" else v)
+
+2025-02-20 22:54:39,234 - INFO - Updating Wikipedia page for Josh_Rachele 11-Apr-2003
+2025-02-20 22:54:39,812 - INFO - Content matches the advanced search criteria
