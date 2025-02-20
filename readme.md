@@ -51,7 +51,7 @@ When running the script for the first time, you’ll be prompted to enter your W
 
   ```sh
   python main.py
-  
+
 The script will prompt you to enter:  
 - 📅 **Scraping frequency** (in days)  
 - 📆 **Year to scrape** (between 1897 and the current year)  
@@ -65,7 +65,7 @@ The script will prompt you to enter:
   Enter the year to scrape (e.g., 2024): 2024  
   Enter the number of threads to use (1-20): 5  
   Enter your Wikipedia password: (hidden input)  
-
+  ```
 ## 📌 Important Notes  
 
 ⚠️ The **terminal must remain open** while the program is running. Closing it will stop the process.  
