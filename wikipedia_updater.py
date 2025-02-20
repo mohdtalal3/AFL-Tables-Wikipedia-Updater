@@ -120,8 +120,9 @@ def process_player_stats(stats_df, averages_df):
         averages_df.reset_index(drop=True, inplace=True)
         votes_df = votes_df.T
         
-        main_df = main_df.applymap(lambda v: 0 if v == "" else v)
-        averages_df = averages_df.applymap(lambda v: 0 if v == "" else v)
+        main_df = main_df.map(lambda v: 0 if v == "" else v)
+        averages_df = averages_df.map(lambda v: 0 if v == "" else v)
+        total_career_df=total_career_df.map(lambda v: 0 if v == "" else v)
         return main_df, total_career_df, votes_df, averages_df
     except Exception as e:
         logging.error(f"Error processing player stats: {str(e)}")

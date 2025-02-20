@@ -205,7 +205,7 @@ def get_user_inputs():
                 print(f"Please enter a valid year between 1897 and {datetime.now().year}")
                 continue
             
-            thread_count = int(input("Enter the number of threads to use (1-20): "))
+            thread_count = int(input("Enter the number of players you want to update at same time (1-10): "))
             if thread_count <= 0 or thread_count > 20:
                 print("Please enter a number between 1 and 20")
                 continue
