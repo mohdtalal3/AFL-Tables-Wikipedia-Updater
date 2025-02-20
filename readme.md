@@ -34,6 +34,10 @@ To clone this repository to your local machine, open **Terminal / Command Prompt
 ```sh
 git clone https://github.com/mohdtalal3/AFL-Tables-Wikipedia-Updater.git
 ```
+## 📂 Navigate into the Project Directory
+```sh
+cd AFL-Tables-Wikipedia-Updater
+```
 
 ### 2️⃣ Install Required Packages  
 - Open **Terminal / Command Prompt**  
