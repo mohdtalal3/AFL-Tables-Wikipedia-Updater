@@ -27,6 +27,14 @@ This **open-source** project scrapes real-time AFL data from [AFL Tables](https:
   python --version
 
 
+## 🔽 Cloning the Project  
+
+To clone this repository to your local machine, open **Terminal / Command Prompt** and run the following command:  
+
+```sh
+git clone https://github.com/mohdtalal3/AFL-Tables-Wikipedia-Updater.git
+```
+
 ### 2️⃣ Install Required Packages  
 - Open **Terminal / Command Prompt**  
 - Navigate to your project directory  
@@ -34,7 +42,7 @@ This **open-source** project scrapes real-time AFL data from [AFL Tables](https:
 
   ```sh
   pip install -r requirements.txt
-
+  ```
 
 ### 3️⃣ Configure Environment Variables  
 - Create a `.env` file in the project directory.  
@@ -42,7 +50,7 @@ This **open-source** project scrapes real-time AFL data from [AFL Tables](https:
 
   ```ini
   WIKI_USERNAME=your_username
-
+  ```
 When running the script for the first time, you’ll be prompted to enter your Wikipedia password.
 (It will be hidden for security reasons.)
 
@@ -51,7 +59,7 @@ When running the script for the first time, you’ll be prompted to enter your W
 
   ```sh
   python main.py
-
+  ```
 The script will prompt you to enter:  
 - 📅 **Scraping frequency** (in days)  
 - 📆 **Year to scrape** (between 1897 and the current year)  
