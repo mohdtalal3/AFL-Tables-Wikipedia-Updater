@@ -32,16 +32,16 @@ This **open-source** project scrapes real-time AFL data from [AFL Tables](https:
 - Navigate to your project directory  
 - Install dependencies using:  
 
-```sh
-pip install -r requirements.txt
+  ```sh
+  pip install -r requirements.txt
 
 
 ### 3️⃣ Configure Environment Variables  
 - Create a `.env` file in the project directory.  
 - Add your Wikipedia username:  
 
-```ini
-WIKI_USERNAME=your_username
+  ```ini
+  WIKI_USERNAME=your_username
 
 When running the script for the first time, you’ll be prompted to enter your Wikipedia password.
 (It will be hidden for security reasons.)
@@ -49,9 +49,9 @@ When running the script for the first time, you’ll be prompted to enter your W
 ## ▶️ Running the Scraper  
 - Start the program by running:  
 
-```sh
-python main.py
-```
+  ```sh
+  python main.py
+  
 The script will prompt you to enter:  
 - 📅 **Scraping frequency** (in days)  
 - 📆 **Year to scrape** (between 1897 and the current year)  
@@ -60,11 +60,11 @@ The script will prompt you to enter:
 
 ## ✅ Example Input & Execution  
 
-```sh
-Enter how often to run the scraper (in days): 2  
-Enter the year to scrape (e.g., 2024): 2024  
-Enter the number of threads to use (1-20): 5  
-Enter your Wikipedia password: (hidden input)  
+  ```sh
+  Enter how often to run the scraper (in days): 2  
+  Enter the year to scrape (e.g., 2024): 2024  
+  Enter the number of threads to use (1-20): 5  
+  Enter your Wikipedia password: (hidden input)  
 
 ## 📌 Important Notes  
 
