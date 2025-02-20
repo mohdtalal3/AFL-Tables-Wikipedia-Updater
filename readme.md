@@ -25,7 +25,7 @@ This **open-source** project scrapes real-time AFL data from [AFL Tables](https:
 - Install and verify using:  
   ```sh
   python --version
-
+  ```
 
 ## 🔽 Cloning the Project  
 
