@@ -27,6 +27,7 @@ class PlayerTracker:
     def __init__(self):
         self.tracker_file = "player_tracker.json"
         self.processed_file = "processed_players.json"
+        self.failed_file = "failed.csv"  # New file for failed players
         self.lock = threading.Lock()
         self.load_tracker()
         
@@ -43,10 +44,19 @@ class PlayerTracker:
                     self.processed_players = json.load(f)
             else:
                 self.processed_players = []
+                
+            # Initialize failed players tracking
+            if os.path.exists(self.failed_file):
+                self.failed_players = pd.read_csv(self.failed_file)['Player Name'].tolist()
+            else:
+                self.failed_players = []
+                pd.DataFrame(columns=['Player Name']).to_csv(self.failed_file, index=False)
+                
         except Exception as e:
             logging.error(f"Error loading tracker files: {str(e)}")
             self.tracker = {"total_players": 0, "processed_count": 0}
             self.processed_players = []
+            self.failed_players = []
             
     def save_tracker(self):
         try:
@@ -81,31 +91,55 @@ class PlayerTracker:
         self.save_processed_players()
         self.save_tracker()
 
-def process_player(player, tracker, wiki_site):
-    try:
-        logging.info(f"Processing {player['Player Name']}...")
-        
-        # Add timeout to requests
-        stats_df, averages_df, dob = extract_tables_data(player['Profile Link'])
-        if stats_df is None or averages_df is None:
-            logging.error(f"Failed to extract data for {player['Player Name']}")
-            return
+    def add_failed_player(self, player_name):
+        with self.lock:
+            if player_name not in self.failed_players:
+                self.failed_players.append(player_name)
+                pd.DataFrame({'Player Name': [player_name]}).to_csv(
+                    self.failed_file, 
+                    mode='a', 
+                    header=False, 
+                    index=False
+                )
+                logging.error(f"Added {player_name} to failed players list after multiple retries")
+
+def process_player(player, tracker, wiki_site, max_retries=4):
+    player_name = player['Player Name']
+    
+    for attempt in range(max_retries):
+        try:
+            logging.info(f"Processing {player_name}... (Attempt {attempt + 1}/{max_retries})")
             
-        stats_df, total_career_df, votes_df, averages_df = process_player_stats(stats_df, averages_df)
-        if stats_df is not None and averages_df is not None:
+            # Add timeout to requests
+            stats_df, averages_df, dob = extract_tables_data(player['Profile Link'])
+            if stats_df is None or averages_df is None:
+                raise Exception("Failed to extract data")
+                
+            stats_df, total_career_df, votes_df, averages_df = process_player_stats(stats_df, averages_df)
+            if stats_df is None or averages_df is None:
+                raise Exception("Failed to process stats")
+                
             json_output = convert_dataframes_to_json(stats_df, total_career_df, votes_df, averages_df)
-            success = update_wikipedia_page(player['Player Name'], json_output, wiki_site, dob)
+            success = update_wikipedia_page(player_name, json_output, wiki_site, dob)
             
             if success:
-                tracker.add_processed_player(player["Player Name"])
-                logging.info(f"Successfully processed {player['Player Name']}")
+                tracker.add_processed_player(player_name)
+                logging.info(f"Successfully processed {player_name}")
+                return True
             else:
-                logging.warning(f"Failed to update Wikipedia page for {player['Player Name']}")
+                raise Exception("Failed to update Wikipedia page")
             
-        time.sleep(3)  # Rate limiting
-        
-    except Exception as e:
-        logging.error(f"Error processing {player['Player Name']}: {str(e)}")
+        except Exception as e:
+            logging.warning(f"Attempt {attempt + 1} failed for {player_name}: {str(e)}")
+            time.sleep(5)  # Wait between retries
+            
+            if attempt == max_retries - 1:
+                logging.error(f"All attempts failed for {player_name}")
+                tracker.add_failed_player(player_name)
+                return False
+                
+        finally:
+            time.sleep(3)  # Rate limiting between attempts
 
 def process_players_thread(players_chunk, tracker, wiki_site):
     for player in players_chunk:
@@ -246,39 +280,29 @@ def run_scraper(year, thread_count):
         tracker.tracker["total_players"] = len(players_data)
         tracker.save_tracker()
         
+        # First pass - process all players
         chunk_size = max(1, len(players_data) // thread_count)
         players_chunks = [players_data[i:i + chunk_size] for i in range(0, len(players_data), chunk_size)]
         
-        with concurrent.futures.ThreadPoolExecutor(max_workers=thread_count) as executor:
-            futures = []
-            for chunk in players_chunks:
-                future = executor.submit(process_players_thread, chunk, tracker, wiki_site)
-                futures.append(future)
+        logging.info("Starting first pass...")
+        process_chunks_with_executor(players_chunks, tracker, wiki_site, thread_count)
+        
+        # Second pass - retry failed players
+        if tracker.failed_players:
+            logging.info(f"Starting second pass for {len(tracker.failed_players)} failed players...")
+            failed_players_data = [
+                p for p in players_data 
+                if p['Player Name'] in tracker.failed_players
+            ]
             
-            try:
-                done, not_done = concurrent.futures.wait(
-                    futures, 
-                    timeout=3600,  # 1 hour timeout
-                    return_when=concurrent.futures.ALL_COMPLETED
-                )
-                
-                # Cancel any incomplete futures
-                for future in not_done:
-                    future.cancel()
-                    
-                # Check for exceptions
-                for future in done:
-                    try:
-                        future.result()  # This will raise any exceptions that occurred
-                    except Exception as e:
-                        logging.error(f"Thread error: {str(e)}")
-                        
-            except concurrent.futures.TimeoutError:
-                logging.error("Processing timed out after 1 hour")
-                
-            finally:
-                # Shutdown executor gracefully
-                executor.shutdown(wait=False)
+            # Clear failed players list before second pass
+            tracker.failed_players = []
+            pd.DataFrame(columns=['Player Name']).to_csv(tracker.failed_file, index=False)
+            
+            failed_chunks = [failed_players_data[i:i + chunk_size] 
+                           for i in range(0, len(failed_players_data), chunk_size)]
+            
+            process_chunks_with_executor(failed_chunks, tracker, wiki_site, thread_count)
         
         if tracker.tracker["processed_count"] >= tracker.tracker["total_players"]:
             logging.info("All players processed. Resetting tracker...")
@@ -286,6 +310,38 @@ def run_scraper(year, thread_count):
             
     except Exception as e:
         logging.error(f"Error in run_scraper: {str(e)}")
+
+def process_chunks_with_executor(chunks, tracker, wiki_site, thread_count):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=thread_count) as executor:
+        futures = []
+        for chunk in chunks:
+            future = executor.submit(process_players_thread, chunk, tracker, wiki_site)
+            futures.append(future)
+        
+        try:
+            done, not_done = concurrent.futures.wait(
+                futures, 
+                timeout=3600,  # 1 hour timeout
+                return_when=concurrent.futures.ALL_COMPLETED
+            )
+            
+            # Cancel any incomplete futures
+            for future in not_done:
+                future.cancel()
+                
+            # Check for exceptions
+            for future in done:
+                try:
+                    future.result()
+                except Exception as e:
+                    logging.error(f"Thread error: {str(e)}")
+                    
+        except concurrent.futures.TimeoutError:
+            logging.error("Processing timed out after 1 hour")
+            
+        finally:
+            executor.shutdown(wait=False)
+
 def convert_dataframes_to_json(stats_df, total_career_df, votes_df, averages_df):
     data_dict = {
         "stats_df": stats_df.to_dict(orient="records"),
@@ -311,6 +367,7 @@ def get_player_dob(soup):
     except Exception as e:
         print(f"Error parsing data: {e}")
         return None
+
 def schedule_scraper():
     days, year, thread_count = get_user_inputs()
     

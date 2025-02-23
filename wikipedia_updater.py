@@ -138,34 +138,68 @@ def initialize_apis():
     except Exception as e:
         logging.error(f"Error initializing APIs: {str(e)}")
         return None
+    
+def fetch_afl_player_page(site, player_name):
+    """
+    Tries to fetch a Wikipedia page for an AFL player.
+    If the page doesn't exist, it appends (footballer) and then (Australian footballer) as fallbacks.
+    """
+    name_variants = [player_name, f"{player_name} (footballer)", f"{player_name} (Australian footballer)"]
+
+    criteria = {
+        "must_words": ["afl"],      
+        "one_of": ["footballer", "football", "afl"]            
+    }
+
+    for name in name_variants:
+        page = pywikibot.Page(site, name)
+        try:
+            current_content = page.text  # Attempt to load page content
+            if advanced_search(current_content, **criteria):
+                logging.info(f"Page '{name}' matches the criteria.")
+                return page  # Return the valid page
+            else:
+                logging.warning(f"Page '{name}' does not match the criteria.")
+        except pywikibot.exceptions.NoPage:
+            logging.info(f"Page '{name}' does not exist, trying next variant.")
+    
+    logging.warning("No valid page found for the player.")
+    return None  # No valid page found
+
 
 def update_wikipedia_page(player_name, json_data, site, dob):
     try:
         logging.info(f"Updating Wikipedia page for {player_name} {dob}")
-        
-        page = pywikibot.Page(site, player_name)
-        try:
-            page.text  # Force page load with default timeout
-        except pywikibot.exceptions.NoPage:
-            logging.info(f"Page '{player_name}' does not exist, trying footballer suffix")
-            page = pywikibot.Page(site, f"{player_name} (footballer)")
-            try:
-                page.text
-            except pywikibot.exceptions.NoPage:
-                logging.warning("Page not found with footballer suffix")
-                return False
-
-        criteria = {
-            "must_words": ["afl"],      
-            "one_of": ["footballer", "football", "afl"]            
-        }
+        page = fetch_afl_player_page(site,player_name)
+        if page is None:
+            logging.warning(f"No valid page found for {player_name}")
+            return False
         
         current_content = page.text
-        if advanced_search(current_content, **criteria):
-            logging.info("Content matches the advanced search criteria")
-        else:
-            logging.warning("Content does not match the criteria")
-            return False
+        
+        # page = pywikibot.Page(site, player_name)
+        # try:
+        #     page.text  # Force page load with default timeout
+        # except pywikibot.exceptions.NoPage:
+        #     logging.info(f"Page '{player_name}' does not exist, trying footballer suffix")
+        #     page = pywikibot.Page(site, f"{player_name} (footballer)")
+        #     try:
+        #         page.text
+        #     except pywikibot.exceptions.NoPage:
+        #         logging.warning("Page not found with footballer suffix")
+        #         return False
+
+        # criteria = {
+        #     "must_words": ["afl"],      
+        #     "one_of": ["footballer", "football", "afl"]            
+        # }
+        
+        # current_content = page.text
+        # if advanced_search(current_content, **criteria):
+        #     logging.info("Content matches the advanced search criteria")
+        # else:
+        #     logging.warning("Content does not match the criteria")
+        #     return False
 
         stats_text = generate_wiki_markup(json_data, player_name, site)
         if stats_text is None:
