@@ -62,7 +62,7 @@ When running the script for the first time, you’ll be prompted to enter your W
 - Start the program by running:  
 
   ```sh
-  python main.py
+  python afl_scraper.py
   ```
 The script will prompt you to enter:  
 - 📅 **Scraping frequency** (in days)  
