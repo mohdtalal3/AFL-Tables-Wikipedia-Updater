@@ -177,36 +177,18 @@ def update_wikipedia_page(player_name, json_data, site, dob):
         
         current_content = page.text
         
-        # page = pywikibot.Page(site, player_name)
-        # try:
-        #     page.text  # Force page load with default timeout
-        # except pywikibot.exceptions.NoPage:
-        #     logging.info(f"Page '{player_name}' does not exist, trying footballer suffix")
-        #     page = pywikibot.Page(site, f"{player_name} (footballer)")
-        #     try:
-        #         page.text
-        #     except pywikibot.exceptions.NoPage:
-        #         logging.warning("Page not found with footballer suffix")
-        #         return False
-
-        # criteria = {
-        #     "must_words": ["afl"],      
-        #     "one_of": ["footballer", "football", "afl"]            
-        # }
-        
-        # current_content = page.text
-        # if advanced_search(current_content, **criteria):
-        #     logging.info("Content matches the advanced search criteria")
-        # else:
-        #     logging.warning("Content does not match the criteria")
-        #     return False
-
         stats_text = generate_wiki_markup(json_data, player_name, site)
         if stats_text is None:
             return False
             
         updated_content = update_or_insert_statistics_section_in_wikitext(current_content, stats_text)
         
+        # Check if content has actually changed before updating
+        if updated_content == current_content:
+            print(f"No changes detected for {player_name}'s page - skipping update")
+            logging.info(f"No changes detected for {player_name}'s page - skipping update")
+            return True
+            
         # Add timeout to save operation
         try:
             page.text = updated_content
