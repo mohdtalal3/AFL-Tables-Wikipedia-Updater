@@ -402,10 +402,10 @@ def update_wikipedia_page(player_name, json_data, site, dob):
             return False
             
         updated_content = update_or_insert_statistics_section_in_wikitext(current_content, stats_text)
-        with open("output.txt", "w", encoding="utf-8") as file:
-            file.write(updated_content)
-        print("File saved successfully!")
-        input("Press Enter to continue...")
+        # with open("output.txt", "w", encoding="utf-8") as file:
+        #     file.write(updated_content)
+        # print("File saved successfully!")
+        # input("Press Enter to continue...")
         # Check if content has actually changed before updating
         if updated_content == current_content:
             print(f"No changes detected for {player_name}'s page - skipping update")
